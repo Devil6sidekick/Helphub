@@ -1,5 +1,4 @@
 package com.example.charityyyyy;
-
 import androidx.annotation.NonNull;
 import androidx.appcompat.app.ActionBarDrawerToggle;
 import androidx.appcompat.app.AppCompatActivity;
@@ -18,14 +17,18 @@ import android.view.MenuItem;
 import android.view.View;
 import android.view.Window;
 import android.view.WindowManager;
+import android.widget.Button;
+import android.widget.EditText;
 import android.widget.Toast;
 
 import com.google.android.material.bottomnavigation.BottomNavigationView;
 import com.google.android.material.floatingactionbutton.FloatingActionButton;
 import com.google.android.material.navigation.NavigationView;
+import com.google.firebase.database.DatabaseReference;
+import com.google.firebase.database.FirebaseDatabase;
 
 public class homePage extends AppCompatActivity implements NavigationView.OnNavigationItemSelectedListener {
-
+    Button updatemail;
     DrawerLayout drawerLayout;
     FragmentManager fragmentManager;
     Toolbar toolbar;
@@ -37,7 +40,6 @@ public class homePage extends AppCompatActivity implements NavigationView.OnNavi
         setContentView(R.layout.activity_home_page);
         this.getWindow().setFlags(WindowManager.LayoutParams.FLAG_FULLSCREEN, WindowManager.LayoutParams.FLAG_FULLSCREEN);
         getWindow().setStatusBarColor(ContextCompat.getColor(homePage.this,R.color.beige));
-
         add_button = findViewById(R.id.add_button);
         toolbar = findViewById(R.id.tool_bar);
         setSupportActionBar(toolbar);
@@ -52,11 +54,10 @@ public class homePage extends AppCompatActivity implements NavigationView.OnNavi
         fragmentManager = getSupportFragmentManager();
         openFragment(new HomeFragment());
 
-        add_button.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
-                Toast.makeText(homePage.this, "Add an event", Toast.LENGTH_SHORT).show();
-            }
+        add_button.setOnClickListener(view -> {
+            Toast.makeText(homePage.this, "Add an event", Toast.LENGTH_SHORT).show();
+            Intent intent = new Intent(homePage.this,AddEvent.class);
+            startActivity(intent);
         });
 
     }

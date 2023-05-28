@@ -1,18 +1,18 @@
 package com.example.charityyyyy;
 
 public class Event {
-
     private String name;
     private String date;
     private String description;
     private String requirements;
-
     public Event(String name, String date, String description, String requirements) {
         this.name = name;
         this.date = date;
         this.description = description;
         this.requirements = requirements;
+
     }
+    public Event(){}
     //getters
     public String getName() {
         return name;
@@ -46,4 +46,5 @@ public class Event {
     public void setRequirements(String requirements) {
         this.requirements = requirements;
     }
+
 }
