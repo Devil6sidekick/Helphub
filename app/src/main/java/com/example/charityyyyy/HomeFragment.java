@@ -4,6 +4,7 @@ import android.os.Bundle;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.EditText;
 
 import androidx.fragment.app.Fragment;
 import androidx.recyclerview.widget.LinearLayoutManager;
@@ -15,7 +16,7 @@ import java.util.List;
 
 
 public class HomeFragment extends Fragment {
-    private List<Event> eventList;
+    public static List<Event> eventList = new ArrayList<>();
     private RecyclerView homeRecyclerView;
     private EventAdapter eventAdapter;
     public HomeFragment() {
@@ -28,7 +29,7 @@ public class HomeFragment extends Fragment {
                              Bundle savedInstanceState) {
         // Inflate the layout for this fragment
         View rootView =inflater.inflate(R.layout.fragment_home, container, false);
-        eventList=generateEvents();
+
         homeRecyclerView=rootView.findViewById(R.id.Homerecyclerview);
         homeRecyclerView.setLayoutManager(new LinearLayoutManager(getActivity()));
         eventAdapter= new EventAdapter(eventList);
@@ -37,15 +38,9 @@ public class HomeFragment extends Fragment {
     }
 
 
-    public List<Event> getEventList() {
-        return eventList;
-    }
-
-    private List<Event> generateEvents(){
-        List<Event> events= new ArrayList<>();
-        events.add(new Event("hqwfew","qw","dd","asff"));
 
 
-        return events;
+    public static void generateEvents(Event event){
+        eventList.add(event);
     }
 }

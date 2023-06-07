@@ -87,6 +87,9 @@ public class loginPage extends AppCompatActivity {
                 startActivity(new Intent(loginPage.this, registerPage.class));
             }
         });
+
+
+        //mot de passe oublie
         forgotPassword.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {

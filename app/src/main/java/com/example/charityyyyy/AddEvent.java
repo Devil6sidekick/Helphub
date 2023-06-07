@@ -93,11 +93,11 @@ public class AddEvent extends AppCompatActivity {
                 editTextDate.getText().toString(),
                 editTextDesc.getText().toString(),
                 editTextReq.getText().toString());
+        HomeFragment.generateEvents(event);
         mDatabase.child("events").child(event.getName()).setValue(event);
-
     }
     public void sendData(View view){
         writeNewEvent();
     }
 
-        }
+}
